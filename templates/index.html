@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>credit eligibilty prediction</title>
+</head>
+<body>
+    <h1 class="heading1">CUSTOMER CREDIT ELIGIBILITY PREDICTOR</h1>
+    <form action="{{url_for('predict')}}" method="POST">
+
+        <label for="">Does the customer own telephone?</label><br>
+        <select name="telephone" id="">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+
+        <label for="">Customer's gender</label><br>
+        <select name="gender" id="">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+        <label for="">Customer's marital status</label><br>
+        <select name="mstatus" id="">
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+        </select><br>
+        <label for="">Customer's employment level</label><br>
+        <select name="employment" id="">
+            <option value="less than 1 year experience">Less than 1 year experience</option>
+            <option value="btn 1 to 4 yrs experiece">Between 1 to 4 years experiece</option>
+            <option value="btn 4 to 7 yrs experiece">Between 4 to 7 years experiece</option>
+            <option value="more than 7 yrs experiece">More than 7 years experiece</option>
+            <option value="unemployed">Unemployed</option>
+        </select><br>
+        <label for="">What is the credit amount wanted by the customer?</label><br>
+        <input min="200" max="20000" type="number" name="credit_amount">
+        <input type="submit" value="Submit">
+    </form>
+    <h1>
+        <p>Not that the eligibility is based on the credit history prediction: {{result}}</p>
+        <p>Eligibility: {{eligibility}}</p>
+    </h1>
+</body>
+</html>
