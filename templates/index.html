@@ -16,23 +16,27 @@
         <form action="{{url_for('predict')}}" method="POST">
             <label style="font-weight: bold;" for="">Does the customer own telephone?</label><br>
             <select style="margin-bottom: 2%;" name="telephone" id="">
+            <option disabled selected value> -- select an option -- </option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select><br>
 
             <label style="font-weight: bold;" for="">Customer's gender</label><br>
             <select style="margin-bottom: 2%;" name="gender" id="">
+                <option disabled selected value> -- select an option -- </option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select><br>
             <label style="font-weight: bold;" for="">Customer's marital status</label><br>
             <select style="margin-bottom: 2%;" name="mstatus" id="">
+                <option disabled selected value> -- select an option -- </option>
                 <option value="single">Single</option>
                 <option value="married">Married</option>
                 <option value="divorced">Divorced</option>
             </select><br>
             <label style="font-weight: bold;" for="">Customer's employment level</label><br>
             <select style="margin-bottom: 2%;" name="employment" id="">
+                <option disabled selected value> -- select an option -- </option>
                 <option value="less than 1 year experience">Less than 1 year experience</option>
                 <option value="btn 1 to 4 yrs experiece">Between 1 to 4 years experiece</option>
                 <option value="btn 4 to 7 yrs experiece">Between 4 to 7 years experiece</option>
