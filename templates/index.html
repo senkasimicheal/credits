@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>credit eligibilty prediction</title>
 </head>
+
 <body>
-    <h1 class="heading1">CUSTOMER CREDIT ELIGIBILITY PREDICTOR</h1>
-    <form action="{{url_for('predict')}}" method="POST">
+    <h1 style="background: #b5aaaa; color: green; font-size: 150%; font-weight: bolder; text-align: center;">CUSTOMER CREDIT ELIGIBILITY PREDICTOR</h1>
+    <div style="height: 100%; display: flex; align-items: center; justify-content: center;
+    background:rgb(132, 153, 101); margin: 0 2rem; padding: 1rem 3rem; border-radius: 0.5rem;
+    box-shadow: 0 .1rem .3rem #333; position: relative;">
+        <form action="{{url_for('predict')}}" method="POST">
+            <label style="font-weight: bold;" for="">Does the customer own telephone?</label><br>
+            <select style="margin-bottom: 2%;" name="telephone" id="">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
 
-        <label for="">Does the customer own telephone?</label><br>
-        <select name="telephone" id="">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-        </select><br>
-
-        <label for="">Customer's gender</label><br>
-        <select name="gender" id="">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select><br>
-        <label for="">Customer's marital status</label><br>
-        <select name="mstatus" id="">
-            <option value="single">Single</option>
-            <option value="married">Married</option>
-            <option value="divorced">Divorced</option>
-        </select><br>
-        <label for="">Customer's employment level</label><br>
-        <select name="employment" id="">
-            <option value="less than 1 year experience">Less than 1 year experience</option>
-            <option value="btn 1 to 4 yrs experiece">Between 1 to 4 years experiece</option>
-            <option value="btn 4 to 7 yrs experiece">Between 4 to 7 years experiece</option>
-            <option value="more than 7 yrs experiece">More than 7 years experiece</option>
-            <option value="unemployed">Unemployed</option>
-        </select><br>
-        <label for="">What is the credit amount wanted by the customer?</label><br>
-        <input min="200" max="20000" type="number" name="credit_amount">
-        <input type="submit" value="Submit">
-    </form>
-    <h1>
-        <p>Not that the eligibility is based on the credit history prediction: {{result}}</p>
-        <p>Eligibility: {{eligibility}}</p>
-    </h1>
+            <label style="font-weight: bold;" for="">Customer's gender</label><br>
+            <select style="margin-bottom: 2%;" name="gender" id="">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br>
+            <label style="font-weight: bold;" for="">Customer's marital status</label><br>
+            <select style="margin-bottom: 2%;" name="mstatus" id="">
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="divorced">Divorced</option>
+            </select><br>
+            <label style="font-weight: bold;" for="">Customer's employment level</label><br>
+            <select style="margin-bottom: 2%;" name="employment" id="">
+                <option value="less than 1 year experience">Less than 1 year experience</option>
+                <option value="btn 1 to 4 yrs experiece">Between 1 to 4 years experiece</option>
+                <option value="btn 4 to 7 yrs experiece">Between 4 to 7 years experiece</option>
+                <option value="more than 7 yrs experiece">More than 7 years experiece</option>
+                <option value="unemployed">Unemployed</option>
+            </select><br>
+            <label style="font-weight: bold;" for="">What is the credit amount wanted by the customer?</label><br>
+            <input style="margin-bottom: 2%;" min="200" max="20000" type="number" name="credit_amount"><br>
+            <input style="font-weight: bold; color: red;" type="submit" value="Submit"><br>
+            <p style="text-decoration: underline; font-weight: bold; color: blue;">PREDICTIONS</p>
+            <p style="font-style: italic;">Possible credit history about the customer</p>
+            <p style="font-style: italic; color: whitesmoke;">{{result}}</p>
+            <p style="font-weight: bold; color: blue;">Eligibility for credit</p>
+            <p style="font-style: italic; color: whitesmoke;">{{eligibility}}</p>
+        </form>
+    </div>
+    <p style="font-style: italic; font-weight: bold; margin-top: 1%; color: darkgoldenrod;">Created and designed by Senkasi Micheal</p>
+    <p style="font-style: italic; font-weight: bold; color: rgb(92, 11, 184); margin-top: -1.5%;">Statistician</p>
 </body>
+
 </html>
