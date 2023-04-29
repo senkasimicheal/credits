@@ -93,16 +93,24 @@ def plot1():
     plt.title("Chart for credit history")
     
     fig2, ax2 = plt.subplots()
-    ax2 = sns.barplot(x=df.gender,y=df.credit_amount)
+    ax2 = sns.barplot(x=df.gender,y=df.credit_amount,ci=None)
+    for p in ax2.patches:
+        ax2.annotate(f"{p.get_height():.0f}", (p.get_x() + p.get_width() / 2., p.get_height()),
+                     ha='center', va='center', fontsize=11, color='black', xytext=(0, 5),
+                     textcoords='offset points')
     plt.title("Chart for credit amount with gender")
     plt.ylabel("average credit amount")
     
     fig3, ax3 = plt.subplots()
-    ax3 = sns.countplot(df.purpose)
+    ax3 = sns.barplot(x=df.purpose, y=df.credit_amount,ci=None)
+    for p in ax3.patches:
+        ax3.annotate(f"{p.get_height():.0f}", (p.get_x() + p.get_width() / 2., p.get_height()),
+                     ha='center', va='center', fontsize=11, color='black', xytext=(0, 5),
+                     textcoords='offset points')
     plt.xticks(rotation=45)
     plt.xlabel('purpose of credit')
-    plt.ylabel('frequency')
-    plt.title('Chart showing purpose of credit')
+    plt.ylabel('average credit amount')
+    plt.title('Chart showing purpose of credit with the average credit amount')
     
     fig4, ax4 = plt.subplots()
     ax4 = sns.scatterplot(df.credit_amount,df.duration)
