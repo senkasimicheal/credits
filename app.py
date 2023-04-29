@@ -114,7 +114,7 @@ def plot1():
     
     fig4, ax4 = plt.subplots()
     ax4 = sns.scatterplot(x=df.credit_amount,y=df.duration,data=df)
-    ax4 = sns.regplot(df.credit_amount,df.duration)
+    ax4 = sns.regplot(x=df.credit_amount,y=df.duration,data=df)
     plt.xlabel("credit amount")
     plt.ylabel("credit duration")
     plt.title("Linear relationship between credit amount and duration")
