@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit visualization</title>
+</head>
+
+<body>
+    <h1 style="color: rgb(26, 11, 11); text-decoration: underline; font-style: italic;">Important visualizations of credit data</h1>
+    <div style="display: flex;">
+        <div>
+            <h3>Percentage share of the credit history</h3>
+            <img style="width: 300px; margin-right: 20px;" src="data:image/png;base64,{{image1}}" alt="">
+        </div>
+        <div>
+            <h3>Average credit amount distribution among the different gender</h3>
+            <img style="width: 300px; margin-right: 20px;" src="data:image/png;base64,{{image2}} " alt=" ">
+        </div>
+        <div>
+            <h3>Frequency distribution of purpose of credit</h3>
+            <img style="width: 300px; margin-right: 20px;" src="data:image/png;base64,{{image3}} " alt=" ">
+        </div>
+        <div>
+            <h3>Linear relationship between credit amount and credit duration in days</h3>
+            <img style="width: 300px; margin-right: 20px;" src="data:image/png;base64,{{image4}} " alt=" "></div>
+    </div>
+
+    <a style="color: red; font-weight: bold; margin-left: 10%; text-decoration: none;" href="{{url_for('gotoHome')}}">Return to predictions</a>
+
+</body>
+
+</html>

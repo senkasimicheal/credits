@@ -1,9 +1,14 @@
 from flask import Flask, render_template, request
+import io
+import base64
+import os
 import pickle
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import  LabelEncoder
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 app = Flask(__name__)
 
@@ -77,6 +82,68 @@ def predict():
         eligibility = 'Eligible for a credit'
         
     return render_template("index.html", result=result, eligibility=eligibility)
+
+@app.route('/plot')
+def plot1():
+    df = pd.read_csv("customer_data.csv")
+    
+    credit=df.credit_history.value_counts()
+    fig1, ax1 = plt.subplots()
+    ax1.pie(credit,labels=credit.index,autopct='%1.1f%%',startangle=90)
+    plt.title("Chart for credit history")
+    
+    fig2, ax2 = plt.subplots()
+    ax2 = sns.barplot(x=df.gender,y=df.credit_amount)
+    plt.title("Chart for credit amount with gender")
+    plt.ylabel("average credit amount")
+    
+    fig3, ax2 = plt.subplots()
+    ax2 = sns.countplot(df.purpose)
+    plt.xticks(rotation=45)
+    plt.xlabel('purpose of credit')
+    plt.ylabel('frequency')
+    plt.title('Chart showing purpose of credit')
+    
+    fig4, ax4 = plt.subplots()
+    ax4 = sns.scatterplot(df.credit_amount,df.duration)
+    ax4 = sns.regplot(df.credit_amount,df.duration)
+    plt.xlabel("credit amount")
+    plt.ylabel("credit duration")
+    plt.title("Linear relationship between credit amount and duration")
+    
+    buffer1 = io.BytesIO()
+    fig1.savefig(buffer1, format='png')
+    buffer1.seek(0)
+    plot1_png=base64.b64encode(buffer1.getvalue()).decode('utf-8')
+    buffer1.close()
+    
+    buffer2 = io.BytesIO()
+    fig2.savefig(buffer2, format='png')
+    buffer2.seek(0)
+    plot2_png=base64.b64encode(buffer2.getvalue()).decode('utf-8')
+    buffer2.close()
+    
+    buffer3 = io.BytesIO()
+    fig3.savefig(buffer3,format='png')
+    buffer3.seek(0)
+    plot3_png=base64.b64encode(buffer3.getvalue()).decode('utf-8')
+    buffer3.close()
+    
+    buffer4 = io.BytesIO()
+    fig4.savefig(buffer4,format='png')
+    buffer4.seek(0)
+    plot4_png=base64.b64encode(buffer4.getvalue()).decode('utf-8')
+    buffer4.close()
+    
+    return render_template('plot.html',image1=plot1_png,image2=plot2_png,image3=plot3_png,image4=plot4_png)
+
+@app.route('/plot')
+def gotoVisuals():
+    return render_template('plot.html')
+
+@app.route('/')
+def gotoHome():
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

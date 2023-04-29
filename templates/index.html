@@ -9,14 +9,15 @@
 </head>
 
 <body>
-    <h1 style="background: #b5aaaa; color: green; font-size: 150%; font-weight: bolder; text-align: center;">CUSTOMER CREDIT ELIGIBILITY PREDICTOR</h1>
+    <h1 style="color: rgb(3, 79, 3); font-size: 150%; font-weight: bolder; text-align: center;">CUSTOMER CREDIT ELIGIBILITY PREDICTOR</h1>
+    <a style="color: red; font-weight: bold; margin-left: 10%; text-decoration: none;" href="{{url_for('gotoVisuals')}}">Click to get visuals about customer data</a>
     <div style="height: 100%; display: flex; align-items: center; justify-content: center;
     background:rgb(132, 153, 101); margin: 0 2rem; padding: 1rem 3rem; border-radius: 0.5rem;
     box-shadow: 0 .1rem .3rem #333; position: relative;">
         <form action="{{url_for('predict')}}" method="POST">
             <label style="font-weight: bold;" for="">Does the customer own telephone?</label><br>
             <select style="margin-bottom: 2%;" name="telephone" id="">
-            <option disabled selected value> -- select an option -- </option>
+                <option disabled selected value> -- select an option -- </option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select><br>
@@ -53,7 +54,7 @@
             <p style="font-style: italic; color: whitesmoke;">{{eligibility}}</p>
         </form>
     </div>
-    <p style="font-style: italic; font-weight: bold; margin-top: 1%; color: darkgoldenrod;">Created and designed by Senkasi Micheal</p>
+    <p style="font-style: italic; font-weight: bold; margin-top: 1%; color: darkgoldenrod;">Created and designed by <a href="https://www.linkedin.com/in/micheal-senkasi-846182233?lipi=urn%3Ali%3Apage%3Ad_UNKNOWN_ROUTE_profile-edit.topcard%3BW1QfiZN3TKWkBUga5%2FEPzg%3D%3D">Senkasi Micheal</a></p>
     <p style="font-style: italic; font-weight: bold; color: rgb(92, 11, 184); margin-top: -1.5%;">Statistician</p>
 </body>
 
