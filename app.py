@@ -97,8 +97,8 @@ def plot1():
     plt.title("Chart for credit amount with gender")
     plt.ylabel("average credit amount")
     
-    fig3, ax2 = plt.subplots()
-    ax2 = sns.countplot(df.purpose)
+    fig3, ax3 = plt.subplots()
+    ax3 = sns.countplot(df.purpose)
     plt.xticks(rotation=45)
     plt.xlabel('purpose of credit')
     plt.ylabel('frequency')
