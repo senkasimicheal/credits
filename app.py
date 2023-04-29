@@ -113,7 +113,7 @@ def plot1():
     plt.title('Chart showing purpose of credit with the average credit amount')
     
     fig4, ax4 = plt.subplots()
-    ax4 = sns.scatterplot(df.credit_amount,df.duration)
+    ax4 = sns.scatterplot(x=df.credit_amount,y=df.duration,data=df)
     ax4 = sns.regplot(df.credit_amount,df.duration)
     plt.xlabel("credit amount")
     plt.ylabel("credit duration")
